@@ -18,5 +18,10 @@ namespace cSharpMovieLibrary
                 Console.WriteLine();
             }
         }
+
+        public static string readUserInput()
+        {
+            return Console.ReadLine();
+        }
     }
 }

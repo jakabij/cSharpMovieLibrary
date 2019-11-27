@@ -6,18 +6,16 @@ namespace cSharpMovieLibrary
 {
     class Reports
     {
-
-        static String[] GetMoviesByGenre(Movies movie)
+        public static void GetMoviesByGenre(List<Movie> m,string userInput)
         {
-            Prop
-            foreach (var item in movie)
+            foreach (Movie element in m)
             {
-
+                if (element.Genre.Contains(userInput))
+                {
+                    Console.WriteLine(element.Genre+": "+element.Title);
+                }
             }
 
-
-            return null;
         }
-
     }
 }
