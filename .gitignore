@@ -1,0 +1,9 @@
+*.suo
+*.user
+*.sln
+*.csproj
+[Oo]bj/
+[Dd]ebug/
+[Bb]in/
+[Rr]elease/
+.vs/
