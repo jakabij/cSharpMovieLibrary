@@ -5,9 +5,18 @@ namespace cSharpMovieLibrary
 {
     class Display
     {
-        void asd()
+        public static void PrintAllData(Dictionary<string, Dictionary<string, string>> file)
         {
-          
+            foreach (string key in file.Keys)
+            {
+                Console.WriteLine(key);
+                foreach (string keyValue in file[key].Keys)
+                {
+                    Console.WriteLine
+                        (keyValue + ": " + file[key][keyValue]);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
