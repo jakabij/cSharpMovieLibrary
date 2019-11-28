@@ -12,7 +12,7 @@ namespace cSharpMovieLibrary
             {
                 StreamReader sr = new StreamReader("movies.ini");
                 var database = new Dictionary<string, Dictionary<string, string>>();
-
+                
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -55,6 +55,28 @@ namespace cSharpMovieLibrary
             }
 
             return null;
+        }
+
+        public static Boolean FileWrite(string filename, Dictionary<string, Dictionary<string, string>> moviesDatabase)
+        {
+
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                foreach (String titleKey in moviesDatabase.Keys)
+                {
+                    Console.WriteLine(titleKey);
+                    foreach  (string item in moviesDatabase[titleKey].Keys)
+                    {
+                        Console.WriteLine(moviesDatabase[titleKey].Keys);
+                        Console.WriteLine(moviesDatabase[titleKey].Values);
+                    }
+                    //sw.WriteLine();
+
+                }
+            }
+
+            return false;
+
         }
     }
 }
