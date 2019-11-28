@@ -13,37 +13,50 @@ namespace cSharpMovieLibrary
             foreach (Movie element in m)
             {
                 string searchedElement = null;
-                if (element.Genre.Contains(userInput))
+                bool toConver = false;
+                switch (whatToSearch)
                 {
-                    switch (whatToSearch)
-                    {
-                        case "title":
-                            searchedElement = element.Title;
-                            break;
+                    case "title":
+                        searchedElement = element.Title;
+                        break;
 
-                        case "genre":
-                            searchedElement = element.Genre;
-                            break;
+                    case "genres":
+                        searchedElement = element.Genre;
+                        break;
 
-                        case "director":
-                            searchedElement = element.Director;
-                            break;
+                    case "director":
+                        searchedElement = element.Director;
+                        break;
 
-                        case "releaseYear":
-                            searchedElement = element.ReleaseYear;
-                            break;
+                    case "release_year":
+                        searchedElement = element.ReleaseYear;
+                        break;
 
-                        case "stars":
-                            searchedElement = element.Stars;
-                            break;
+                    case "stars":
+                        searchedElement = element.Stars;
+                        break;
 
-                        case "imdb":
-                            searchedElement = element.Imdb;
-                            break;
-
-                    }
-                    result.Add(searchedElement);
+                    case "imdb":
+                        searchedElement = element.Imdb;
+                        toConver = true;
+                        break;
                 }
+                if(toConver==true)
+                {
+                    double userInputNumber = double.Parse(userInput);
+                    if(double.Parse(searchedElement)>=userInputNumber)
+                    {
+                        result.Add(element.Title+": "+element.Imdb);
+                    }
+                }
+                else
+                {
+                    if (searchedElement.Contains(userInput))
+                    {
+                        result.Add(element.Title);
+                    }
+                }
+  
             }
             return result;
         }
@@ -71,6 +84,5 @@ namespace cSharpMovieLibrary
             return result;
         }
 
-        
     }
 }

@@ -34,7 +34,6 @@ namespace cSharpMovieLibrary
             Stars = stars;
             Imdb = imdb;
         }
-
         public static List<Movie> DictionaryToList()
         {
             Dictionary<string, Dictionary<string, string>> file = FileHandler.FileRead("movies.ini");

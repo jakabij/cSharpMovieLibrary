@@ -12,17 +12,7 @@ namespace cSharpMovieLibrary
             while (true)
             {
                 HandleMenu();
-                try
-                {
-                    Choose();
-                }
-                catch (Exception)
-                {
-                    throw;
-
-                }
-
-                             
+                Choose();
             }
         }
         public static void Choose() 
@@ -33,28 +23,36 @@ namespace cSharpMovieLibrary
                 {
                     Console.Write("Give the genre: ");
                     string userInput = Display.ReadUserInput();
-                    Display.PrintListResult("Movies by genre: ",Reports.GetMoviesByGenre(Movie.DictionaryToList(), userInput));
+                    Display.PrintListResult("Movies by genre: ",Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput,"genres"));
                 }
 
                 else if (inputs == "2")
                 {
                     Console.Write("Give the director: ");
                     string userInput = Display.ReadUserInput();
-                    Display.PrintListResult("Movies by genre: ", Reports.GetMoviesByGenre(Movie.DictionaryToList(), userInput));
+                    Display.PrintListResult("Movies by director ", Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput,"director"));
                 }
 
                 else if (inputs == "3")
                 {
                     Console.Write("Give the year: ");
                     string userInput = Display.ReadUserInput();
-                    Display.PrintListResult("Movies by genre: ", Reports.GetMoviesByGenre(Movie.DictionaryToList(), userInput));
+                    Display.PrintListResult("Movies by year: ", Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput, "release_year"));
                 }
                 else if (inputs == "4")
                 {
                     Console.Write("Give the actor/actress: ");
                     string userInput = Display.ReadUserInput();
-                    Display.PrintListResult("Movies by genre: ", Reports.GetMoviesByGenre(Movie.DictionaryToList(), userInput));
+                    Display.PrintListResult("Movies by the actor/actress: ", Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput,"stars"));
                 }
+
+                else if (inputs == "5")
+                {
+                    Console.Write("Give the imdb value (It will show the titles of movies that bigger than this imdb value): ");
+                    string userInput = Display.ReadUserInput();
+                    Display.PrintListResult("", Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput, "imdb"));
+                }
+
                 else if (inputs == "0")
                 {
                     System.Environment.Exit(0);
@@ -62,7 +60,7 @@ namespace cSharpMovieLibrary
                 
                 else
                 {
-                    throw new Exception("Noooooooooooooooo.");
+                    Console.WriteLine("There is no option like that!\n\n");
                 }
                 
             }
@@ -74,7 +72,7 @@ namespace cSharpMovieLibrary
                     "Movies by director",
                     "Movies by release year",
                     "Movies by actors/actress",
-                    
+                    "Movies by above imdb value", 
                 };
 
              Display.PrintMenu("Main menu", options, "Exit program");
