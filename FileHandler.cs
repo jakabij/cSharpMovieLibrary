@@ -51,7 +51,7 @@ namespace cSharpMovieLibrary
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Szopd ki!");
+                Console.WriteLine("Szopd ki!"+ ex);
             }
 
             return null;
@@ -64,15 +64,17 @@ namespace cSharpMovieLibrary
             {
                 foreach (String titleKey in moviesDatabase.Keys)
                 {
-                    Console.WriteLine(titleKey);
+                    sw.WriteLine("[" + titleKey + "]");
                     foreach  (string item in moviesDatabase[titleKey].Keys)
                     {
-                        Console.WriteLine(moviesDatabase[titleKey]);
-                        Console.WriteLine(moviesDatabase[titleKey].Values.ToString());
+                        sw.WriteLine(item +"="+ moviesDatabase[titleKey][item]);
+                        
                     }
+                    sw.WriteLine();
                     //sw.WriteLine();
 
                 }
+                
             }
 
             return false;
