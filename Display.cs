@@ -29,6 +29,14 @@ namespace cSharpMovieLibrary
             Console.WriteLine(resultText+result);
         }
 
+        public static void PrintListResult(string resultText, List<string> result)
+        {
+            Console.WriteLine(resultText);
+            foreach (string item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
         public static void PrintMenu(string menu, string[] options, string exitMenu)
         {
             Console.WriteLine("      "+menu);
