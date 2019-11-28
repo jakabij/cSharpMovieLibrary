@@ -57,7 +57,7 @@ namespace cSharpMovieLibrary
 
                 else if (inputs == "6")
                 {
-                FileHandler.FileWrite("sd",filenameToWrite);
+                FileHandler.FileWrite("movies.ini",filenameToWrite);
                 }
                 else if (inputs == "0")
                 {

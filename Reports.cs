@@ -13,7 +13,7 @@ namespace cSharpMovieLibrary
             foreach (Movie element in m)
             {
                 string searchedElement = null;
-                bool toConver = false;
+                bool toConvert = false;
                 switch (whatToSearch)
                 {
                     case "title":
@@ -38,10 +38,10 @@ namespace cSharpMovieLibrary
 
                     case "imdb":
                         searchedElement = element.Imdb;
-                        toConver = true;
+                        toConvert = true;
                         break;
                 }
-                if(toConver==true)
+                if(toConvert==true)
                 {
                     double userInputNumber = double.Parse(userInput);
                     if(double.Parse(searchedElement)>=userInputNumber)
@@ -51,7 +51,7 @@ namespace cSharpMovieLibrary
                 }
                 else
                 {
-                    if (searchedElement.Contains(userInput))
+                    if (searchedElement.ToLower().Contains(userInput.ToLower()))
                     {
                         result.Add(element.Title);
                     }
