@@ -19,13 +19,29 @@ namespace cSharpMovieLibrary
             return result;
         }
 
-        public static void GetBestImdb(List<Movie> movies)
+        public static List<string> GetBestImdb(List<Movie> movies)
         {
-            movies.
-            foreach(Movie element in movies)
+            //Console.WriteLine(movies[0]);
+            List<string> result = new List<string>();
+            double bestImdb = double.Parse(movies[0].Imdb);
+            for(int row=1;row<movies.Count;row++)
             {
-
+                if(double.Parse(movies[row].Imdb)>bestImdb)
+                {
+                    bestImdb = double.Parse(movies[row].Imdb);
+                }
             }
+
+            foreach(Movie row in movies)
+            {
+                if(double.Parse(row.Imdb)==bestImdb)
+                {
+                    result.Add(row.Title);
+                }
+            }
+            return result;
         }
+
+        public static double 
     }
 }
