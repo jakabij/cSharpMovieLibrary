@@ -8,55 +8,54 @@ namespace cSharpMovieLibrary
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Dictionary<string, string>>  file=FileHandler.FileRead("movies.ini");
-            Display.PrintAllData(file);
-            List<Movie> listOfMovies = new List<Movie>();
 
-
-            string genre = null;
-            string director = null;
-            string releaseYear = null;
-            string stars = null;
-            string imdb = null;
-
-            foreach (string key in file.Keys)
+            while (true) 
             {
-                string title = key;
-                foreach(string element in file[key].Keys)
+                HandleMenu();
+                try
                 {
-                    switch (element)
-                    {
-                        case "genres":
-                            genre = file[key][element];
-                            break;
-                        case "director":
-                            director = file[key][element];
-                            break;
-                        case "release_year":
-                            releaseYear = file[key][element];
-                            break;
-                        case "stars":
-                            stars = file[key][element];
-                            break;
-                        case "imdb":
-                            imdb = file[key][element];
-                            break;
-
-                        default:
-                            break;
-
-                    }
+                    Choose();
                 }
-                Movie sampleMovie = new Movie(title, genre, director, releaseYear, stars, imdb);
+                catch throw Exception ex
+                    {
+                    ui.print_error_message(str(err));
+
+                    } 
+
                 
-                listOfMovies.Add(sampleMovie);
+
+
+            Console.Write("Give the genre: ");
+            string userInput = Display.ReadUserInput();
+            Reports.GetMoviesByGenre(Movie.DictionaryToList(), userInput);
 
             }
 
-            string userInput = Display.readUserInput();
-            Reports.GetMoviesByGenre(listOfMovies,userInput);
+        public void Choose() 
+            {
+                string inputs = Display.ReadUserInput();
+                option = inputs[0]
+                if option == "1";
+                store.start_module();
+                    
+                elif option == "0":
+                sys.exit(0)
+                else:
+                raise KeyError("There is no such option.")
+            }
 
+        public void HandleMenu() 
+            {
+            string[] options = {"Store manager",
+                       "Human resources manager",
+                       "Inventory manager",
+                       "Accounting manager",
+                       "Sales manager",
+                       "Customer Relationship Management (CRM)" }
 
-        }
+             ui.print_menu("Main menu", options, "Exit program")
+            }
+
+        
     }
 }

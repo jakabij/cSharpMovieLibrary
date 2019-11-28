@@ -19,9 +19,14 @@ namespace cSharpMovieLibrary
             }
         }
 
-        public static string readUserInput()
+        public static string ReadUserInput()
         {
             return Console.ReadLine();
+        }
+
+        public static void PrintResult(string resultText, string result)
+        {
+            Console.WriteLine(resultText+result);
         }
     }
 }
