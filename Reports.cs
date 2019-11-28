@@ -42,6 +42,6 @@ namespace cSharpMovieLibrary
             return result;
         }
 
-        public static double 
+        //public static double 
     }
 }
