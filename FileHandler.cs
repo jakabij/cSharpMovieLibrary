@@ -59,20 +59,30 @@ namespace cSharpMovieLibrary
 
         public static Boolean FileWrite(string filename, Dictionary<string, Dictionary<string, string>> moviesDatabase)
         {
-            using (StreamWriter sw = new StreamWriter(filename))
+            try
             {
-                foreach (String titleKey in moviesDatabase.Keys)
+                using (StreamWriter sw = new StreamWriter(filename))
                 {
-                    sw.WriteLine("[" + titleKey + "]");
-                    foreach  (string item in moviesDatabase[titleKey].Keys)
+                    foreach (String titleKey in moviesDatabase.Keys)
                     {
-                        sw.WriteLine(item +"="+ moviesDatabase[titleKey][item]);
+                        sw.WriteLine("[" + titleKey + "]");
+                        foreach (string item in moviesDatabase[titleKey].Keys)
+                        {
+                            sw.WriteLine(item + "=" + moviesDatabase[titleKey][item]);
+                        }
+                        sw.WriteLine();
                     }
-                    sw.WriteLine();
                 }
+                return true;
             }
+            catch (Exception)
+            {
 
-            return false;
+                return false;
+            }
+            
+
+            
 
         }
     }
