@@ -57,8 +57,25 @@ namespace cSharpMovieLibrary
 
                 else if (inputs == "6")
                 {
-                FileHandler.FileWrite("movies.ini",filenameToWrite);
+                    FileHandler.FileWrite("movies.ini",filenameToWrite);
                 }
+
+                else if(inputs=="7")
+                {
+                    Display.PrintListResult("The best imdb(s): ",Reports.GetBestImdb(Movie.DictionaryToList()));
+                }
+
+                else if(inputs=="8")
+                {
+                Display.PrintAllData(filenameToWrite);
+                }
+
+                else if(inputs=="9")
+                {
+                    Display.PrintData();
+                }
+
+
                 else if (inputs == "0")
                 {
                     System.Environment.Exit(0);
@@ -79,7 +96,9 @@ namespace cSharpMovieLibrary
                     "Movies by release year",
                     "Movies by actors/actress",
                     "Movies by above imdb value",
-                    "write to file"
+                    "Write to file",
+                    "The best imdb's title",
+                    "Show table"
                 };
 
              Display.PrintMenu("Main menu", options, "Exit program");

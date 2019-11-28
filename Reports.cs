@@ -63,7 +63,6 @@ namespace cSharpMovieLibrary
 
         public static List<string> GetBestImdb(List<Movie> movies)
         {
-            //Console.WriteLine(movies[0]);
             List<string> result = new List<string>();
             double bestImdb = double.Parse(movies[0].Imdb);
             for(int row=1;row<movies.Count;row++)
@@ -78,7 +77,7 @@ namespace cSharpMovieLibrary
             {
                 if(double.Parse(row.Imdb)==bestImdb)
                 {
-                    result.Add(row.Title);
+                    result.Add(row.Title+"  ("+row.Imdb+")");
                 }
             }
             return result;
