@@ -6,15 +6,57 @@ namespace cSharpMovieLibrary
 {
     class Reports
     {
-        public static List<string> GetMoviesByGenre(List<Movie> m,string userInput)
+        public static List<string> GetMoviesBySomething(List<Movie> m,string userInput,string whatToSearch)
         {
             List<string> result = new List<string>();
+
             foreach (Movie element in m)
             {
-                if (element.Genre.Contains(userInput))
+                string searchedElement = null;
+                bool toConver = false;
+                switch (whatToSearch)
                 {
-                    result.Add(element.Title);
+                    case "title":
+                        searchedElement = element.Title;
+                        break;
+
+                    case "genres":
+                        searchedElement = element.Genre;
+                        break;
+
+                    case "director":
+                        searchedElement = element.Director;
+                        break;
+
+                    case "release_year":
+                        searchedElement = element.ReleaseYear;
+                        break;
+
+                    case "stars":
+                        searchedElement = element.Stars;
+                        break;
+
+                    case "imdb":
+                        searchedElement = element.Imdb;
+                        toConver = true;
+                        break;
                 }
+                if(toConver==true)
+                {
+                    double userInputNumber = double.Parse(userInput);
+                    if(double.Parse(searchedElement)>=userInputNumber)
+                    {
+                        result.Add(element.Title+": "+element.Imdb);
+                    }
+                }
+                else
+                {
+                    if (searchedElement.Contains(userInput))
+                    {
+                        result.Add(element.Title);
+                    }
+                }
+  
             }
             return result;
         }
@@ -42,6 +84,5 @@ namespace cSharpMovieLibrary
             return result;
         }
 
-        //public static double 
     }
 }

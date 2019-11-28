@@ -19,6 +19,7 @@ namespace cSharpMovieLibrary
             }
         }
 
+
         public static string ReadUserInput()
         {
             return Console.ReadLine();
@@ -26,8 +27,9 @@ namespace cSharpMovieLibrary
 
         public static void PrintResult(string resultText, string result)
         {
-            Console.WriteLine(resultText+result);
+            Console.WriteLine(resultText+result+"\n");
         }
+
 
         public static void PrintListResult(string resultText, List<string> result)
         {
@@ -36,7 +38,10 @@ namespace cSharpMovieLibrary
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
         }
+
+
         public static void PrintMenu(string menu, string[] options, string exitMenu)
         {
             Console.WriteLine("      "+menu);
