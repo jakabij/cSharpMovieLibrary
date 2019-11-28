@@ -6,6 +6,8 @@ namespace cSharpMovieLibrary
 {
     class MovieLibrary
     {
+        public static Dictionary<string, Dictionary<string, string>> filenameToWrite = FileHandler.FileRead("movies.ini");
+
         static void Main(string[] args)
         {
 
@@ -53,6 +55,10 @@ namespace cSharpMovieLibrary
                     Display.PrintListResult("", Reports.GetMoviesBySomething(Movie.DictionaryToList(), userInput, "imdb"));
                 }
 
+                else if (inputs == "6")
+                {
+                FileHandler.FileWrite("sd",filenameToWrite);
+                }
                 else if (inputs == "0")
                 {
                     System.Environment.Exit(0);
@@ -72,7 +78,8 @@ namespace cSharpMovieLibrary
                     "Movies by director",
                     "Movies by release year",
                     "Movies by actors/actress",
-                    "Movies by above imdb value", 
+                    "Movies by above imdb value",
+                    "write to file"
                 };
 
              Display.PrintMenu("Main menu", options, "Exit program");

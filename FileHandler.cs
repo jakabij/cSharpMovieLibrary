@@ -67,8 +67,8 @@ namespace cSharpMovieLibrary
                     Console.WriteLine(titleKey);
                     foreach  (string item in moviesDatabase[titleKey].Keys)
                     {
-                        Console.WriteLine(moviesDatabase[titleKey].Keys);
-                        Console.WriteLine(moviesDatabase[titleKey].Values);
+                        Console.WriteLine(moviesDatabase[titleKey]);
+                        Console.WriteLine(moviesDatabase[titleKey].Values.ToString());
                     }
                     //sw.WriteLine();
 
