@@ -6,14 +6,43 @@ namespace cSharpMovieLibrary
 {
     class Reports
     {
-        public static List<string> GetMoviesByGenre(List<Movie> m,string userInput)
+        public static List<string> GetMoviesBySomething(List<Movie> m,string userInput,string whatToSearch)
         {
             List<string> result = new List<string>();
+
             foreach (Movie element in m)
             {
+                string searchedElement = null;
                 if (element.Genre.Contains(userInput))
                 {
-                    result.Add(element.Title);
+                    switch (whatToSearch)
+                    {
+                        case "title":
+                            searchedElement = element.Title;
+                            break;
+
+                        case "genre":
+                            searchedElement = element.Genre;
+                            break;
+
+                        case "director":
+                            searchedElement = element.Director;
+                            break;
+
+                        case "releaseYear":
+                            searchedElement = element.ReleaseYear;
+                            break;
+
+                        case "stars":
+                            searchedElement = element.Stars;
+                            break;
+
+                        case "imdb":
+                            searchedElement = element.Imdb;
+                            break;
+
+                    }
+                    result.Add(searchedElement);
                 }
             }
             return result;
@@ -42,6 +71,6 @@ namespace cSharpMovieLibrary
             return result;
         }
 
-        public static double 
+        
     }
 }
