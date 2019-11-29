@@ -70,12 +70,6 @@ namespace cSharpMovieLibrary
                 Display.PrintAllData(filenameToWrite);
                 }
 
-                else if(inputs=="9")
-                {
-                    Display.PrintData();
-                }
-
-
                 else if (inputs == "0")
                 {
                     System.Environment.Exit(0);

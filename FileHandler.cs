@@ -51,7 +51,7 @@ namespace cSharpMovieLibrary
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Szopd ki!"+ ex);
+                Console.WriteLine("ERROR\\: "+ ex);
             }
 
             return null;
